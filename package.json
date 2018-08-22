@@ -1,0 +1,19 @@
+{
+  "name": "todo-api",
+  "version": "1.0.0",
+  "description": "📝An easy-to-use todo api for helping developers to learn frontend frameworks",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BillCao1997/todo-api.git"
+  },
+  "author": "Zimin Cao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BillCao1997/todo-api/issues"
+  },
+  "homepage": "https://github.com/BillCao1997/todo-api#readme"
+}
