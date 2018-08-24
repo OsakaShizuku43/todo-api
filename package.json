@@ -4,6 +4,7 @@
   "description": "📝An easy-to-use todo api for helping developers to learn frontend frameworks",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/BillCao1997/todo-api/issues"
   },
-  "homepage": "https://github.com/BillCao1997/todo-api#readme"
+  "homepage": "https://github.com/BillCao1997/todo-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
 }
