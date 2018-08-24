@@ -5,12 +5,14 @@ const db = require('./db');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/', (req, res) => {
-    const items = db.findAll();
+app.get('/todo', (req, res) => {
+    const rawItems = db.findAll();
+    const items = [];
+    for (id in rawItems) items.push(rawItems[id]);
     res.json({ error: false, items: items });
 });
 
-app.post('/', (req, res) => {
+app.post('/todo', (req, res) => {
     const title = req.body.title;
     if (!title || title.trim() === '') {
         res.status(400).json({ error: true, message: 'title is a required field' });
@@ -20,7 +22,7 @@ app.post('/', (req, res) => {
     res.status(201).json({ error: false, item: newTodo });
 });
 
-app.get('/:id', (req, res) => {
+app.get('/todo/:id', (req, res) => {
     const id = req.params.id;
     const todoItem = db.findById(id);
     if (todoItem) {
@@ -30,7 +32,7 @@ app.get('/:id', (req, res) => {
     }
 })
 
-app.put('/:id', (req, res) => {
+app.put('/todo/:id', (req, res) => {
     const id = req.params.id;
     const updatedItem = db.toggleCompleteById(id);
     if (updatedItem) {
@@ -40,7 +42,7 @@ app.put('/:id', (req, res) => {
     }
 });
 
-app.delete('/:id', (req, res) => {
+app.delete('/todo/:id', (req, res) => {
     const id = req.params.id;
     if (db.deleteById(id)) {
         res.json({ error: false });
