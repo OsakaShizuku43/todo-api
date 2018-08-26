@@ -35,6 +35,8 @@ describe('API endpoint /todo', function() {
         if (fs.existsSync('database.bak.json')) {
             fs.renameSync('database.bak.json', 'database.json');
         }
+
+        app.close();
     });
 
     it('should give 404 for invalid paths', () => {

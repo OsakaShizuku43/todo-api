@@ -1,5 +1,6 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
+const http = require('http');
 const db = require('./db');
 
 app.use(bodyParser.json());
@@ -52,8 +53,9 @@ app.delete('/todo/:id', (req, res) => {
 })
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+const server = http.createServer(app);
+server.listen(port, () => {
     console.log(`🌎 Todo API listening at http://localhost:${port}`);
 });
 
-module.exports = app;
+module.exports = server;
